@@ -63,7 +63,7 @@ public class GuiListener implements Listener {
             case ChooseRoomToSpectateWindow:
                 roomSet = GameAPI.RoomHashMap.get("DodgeBolt");
                 rooms = roomSet.toArray(new Room[roomSet.size()-1]);
-                rooms[simple.getResponse().getClickedButtonId()].setSpectator(player, false, false);
+                rooms[simple.getResponse().getClickedButtonId()].setSpectator(player, 0, false);
                 player.sendMessage("您可以通过/dodgebolt quit 退出");
                 break;
             default:

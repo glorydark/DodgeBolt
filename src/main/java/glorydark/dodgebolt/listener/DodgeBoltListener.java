@@ -123,7 +123,7 @@ public class DodgeBoltListener implements GameListener {
                     Integer victimTeam = data.getPlayerTeamIndex(victim);
                     if (!Objects.equals(damagerTeam, victimTeam)) {
                         this.spawnFirework(victim.getPosition(), DyeColor.YELLOW, ItemFirework.FireworkExplosion.ExplosionType.BURST);
-                        room.setSpectator(victim, false, true);
+                        room.setSpectator(victim, 0, true);
                         List<String> killMsg = new ArrayList<>(MainClass.lang.getStringList("kill_messages"));
                         Random random = new Random(System.currentTimeMillis());
                         int index = random.nextInt(killMsg.size());

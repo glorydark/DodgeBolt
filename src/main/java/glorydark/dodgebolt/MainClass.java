@@ -32,11 +32,7 @@ public class MainClass extends PluginBase {
         Config config = new Config(this.getDataFolder().getPath()+"/rooms.yml", Config.YAML);
         lang = new Config(this.getDataFolder().getPath()+"/lang.yml", Config.YAML);
         RoomRule roomRule = new RoomRule(0);
-        roomRule.allowDamagePlayer = true;
-        roomRule.allowEntityExplosionDamage = true;
-        roomRule.allowProjectTileDamage = true;
-        roomRule.readyStartWalk = true;
-        roomRule.allowFoodLevelChange = false;
+        roomRule.setAllowFoodLevelChange(false);
         //设置房间规则
         for(String key: config.getKeys(false)) {
             String backup = config.getString(key + ".world_name");
@@ -45,7 +41,7 @@ public class MainClass extends PluginBase {
             if(gameTime != 0) {
                 room.setGameTime(gameTime);
             }else{
-                roomRule.noTimeLimit = true;
+                roomRule.setNoTimeLimit(true);
                 room.setRoomRule(roomRule);
                 room.setGameTime(3);
             }
@@ -72,7 +68,7 @@ public class MainClass extends PluginBase {
             room.setMaxRound(roomData.getMax_score());
             room.setRoomProperties("extendedData", roomData);
         }
-        //房间设置完成
+        // 房间设置完成
         GameListenerRegistry.registerEvents("DodgeBolt", new DodgeBoltListener(), this);
         this.getServer().getPluginManager().registerEvents(new GuiListener(), this);
         this.getServer().getCommandMap().register("", new GameCommand("dodgebolt"));

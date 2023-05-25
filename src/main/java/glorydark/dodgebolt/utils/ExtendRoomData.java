@@ -22,9 +22,11 @@ import java.util.List;
 public class ExtendRoomData {
 
     private List<Player> team1 = new ArrayList<>();
+
     private List<Player> team2 = new ArrayList<>();
 
     private Integer team1_score = 0;
+
     private Integer team2_score = 0;
 
     private Integer max_score = 1;

@@ -5,7 +5,7 @@ import cn.nukkit.level.particle.FlameParticle;
 import cn.nukkit.scheduler.Task;
 
 public class ProjectileParticleTask extends Task {
-    private EntityArrow arrow;
+    private final EntityArrow arrow;
 
     public ProjectileParticleTask(EntityArrow arrow){
         this.arrow = arrow;
